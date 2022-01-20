@@ -10,7 +10,7 @@ class StateClicker extends Component {
     }
 
     updateNumber() {
-        let number = Math.floor(Math.random() * 10) + 1;
+       let number = Math.floor(Math.random() * 10) + 1;
        this.setState({number: number}); 
     }
 
@@ -18,7 +18,10 @@ class StateClicker extends Component {
         return(
             <div className="StateClicker">
                 <h1 className="StateClicker-title">Number is {this.state.number}</h1>
-                <button className="StateClicker-button" onClick={this.updateNumber}>Random Number</button>
+                { this.state.number !== 7 
+                    ? <button className="StateClicker-button" onClick={this.updateNumber}>Random Number</button>
+                    : <h3 className="StateClicker-h3">YOU WIN!</h3> 
+                }
             </div>
         );
     }
